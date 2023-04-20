@@ -1,0 +1,26 @@
+---
+import { Icon } from "astro-icon";
+import ContentSection from "~/components/content-section.astro";
+import ShowcaseCard from "~/components/showcase-card.astro";
+import { getShowcase } from "~/data/showcase";
+
+const sites = await getShowcase();
+---
+
+<ContentSection title="Responsible we must." id="sponsors">
+  <Icon slot="eyebrow" pack="carbon" name="machine-learning-model" class="h-32" />
+  <Fragment slot="lead">
+    We need collective intelligence to drive artificial intelligence.
+  </Fragment>
+  <p class="max-w-xl">The international study on Responsible AI is lead by a worldwide academic and research network.</p>
+  <div class="max-w-6xl space-y-2">
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+      {sites.map((site) => <ShowcaseCard site={site} />)}
+    </div>
+    <p class="text-right text-sm invisible">
+      <a class="text-primary" href="https://astro.build/showcase/">
+        ...and more &rarr;
+      </a>
+    </p>
+  </div>
+</ContentSection>

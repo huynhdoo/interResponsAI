@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Paris Institute of Advanced Study",
+    "image": "./images/PIAS.png",
+    "url": "https://paris-iea.fr/"
+  },
+  {
+    "title": "UBIAS",
+    "image": "./images/UBIAS.png",
+    "url": "http://www.ubias.net/"
+  },
+  {
+    "title": "NETIAS",
+    "image": "./images/NETIAS.png",
+    "url": "http://netias.science/"
+  },
+  {
+    "title": "International Panel on Social Progress",
+    "image": "./images/IPSP.png",
+    "url": "https://www.ipsp.org/"
+  }
+]

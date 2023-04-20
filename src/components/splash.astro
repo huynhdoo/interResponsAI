@@ -1,0 +1,68 @@
+---
+import { Picture } from "@astrojs/image/components";
+import { Icon } from "astro-icon";
+import astronautImage from "~/assets/astronaut.png";
+import aiImage from "~/assets/ai.png";
+import HeroImage from "~/components/hero-image.astro";
+import Starfield from "~/components/starfield.astro";
+import GitHubCorner from "./github-corner.astro";
+
+const widths = [250, 400];
+const sizes = "(min-width: 200px) 42vw, 67vw";
+---
+
+<section class="relative h-full bg-black">
+  <Starfield />
+  <div id="splash-bg-fallback" class="absolute inset-0 hidden opacity-40">
+    <HeroImage />
+  </div>
+  <div class="relative h-screen flex items-center justify-center">
+    <h2>
+      <div
+        class="gradient-text text-center font-extrabold tracking-tighter text-4xl sm:text-8xl"
+      >
+        International
+        <br />Responsible AI
+        <br />Study 2023
+      </div>
+    </h2>
+  </div>
+</section>
+
+<noscript>
+  <style>
+    #splash-bg-fallback {
+      display: block;
+    }
+  </style>
+</noscript>
+
+<style>
+  @keyframes float {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+      transform: translate3d(0, 30px, 0);
+    }
+  }
+
+  #astronaut {
+    animation: float linear 2.5s infinite alternate;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #astronaut {
+      @apply animate-none;
+    }
+
+    :global(#starfield) {
+      @apply hidden;
+    }
+
+    #splash-bg-fallback {
+      @apply block;
+    }
+  }
+</style>

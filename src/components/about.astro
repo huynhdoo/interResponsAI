@@ -1,0 +1,22 @@
+---
+import { Icon } from "astro-icon";
+import ContentSection from "~/components/content-section.astro";
+---
+
+<ContentSection title="InterResponsAI'23" id="about">
+  <Icon slot="eyebrow" pack="carbon" name="3d-print-mesh" class="h-32" />
+  <Fragment slot="lead">
+    Artificial intelligence technologies are challenging your everyday learning organization?
+  </Fragment>
+  <p class="max-w-xl">On summer 2023, we are lauching an international study about responsible AI. 
+    Subscribe now to this unprecedented panel and stay in front of the social research.</p>
+  <div class="grid grid-cols-1">
+    <a
+      href="#participate"
+      class="flex items-center justify-center gap-3 border-2 border-current px-6 py-4 hover:bg-yellow-500 hover:text-black"
+    >
+      <Icon pack="carbon" name="3rd-party-connected" class="h-8" />
+      <span class="font-bold">Participate to the study</span>
+    </a>
+  </div>
+</ContentSection>

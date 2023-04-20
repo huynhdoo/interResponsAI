@@ -1,0 +1,18 @@
+---
+import { Icon } from "astro-icon";
+import ContentSection from "~/components/content-section.astro";
+---
+<ContentSection title="Really drive the change." id="participate">
+    <Icon slot="eyebrow" pack="carbon" name="3rd-party-connected" class="h-32" />
+    <Fragment slot="lead">
+      Become an active stakeholder of a responsible AI in academic learning.
+    </Fragment>
+    <form class="max-w-xl">
+      <label for="email">Email:</label>
+      <input 
+        type="email" 
+        placeholder="contact@research.science" 
+        class="form-input p-2 ml-2 border-2 border-solid border-black rounded-md"/>
+      <button class="bg-yellow-500 text-black p-2 rounded-md font-bold">Subscribe</button>
+    </form>
+</ContentSection>  

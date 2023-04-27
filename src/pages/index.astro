@@ -1,7 +1,7 @@
 ---
 import "@fontsource/inter/variable.css";
-import "~/styles/index.css";
-import Launch from "~/components/launch.astro";
+import "@styles/index.css";
+import Launch from "@components/launch.astro";
 
 const { generator, site } = Astro;
 const image = new URL("launch.png", site);
@@ -29,8 +29,9 @@ const description = "ChatGPT and other AI-powered systems that generate text are
 
     <!-- initialize theme -->
     <script is:inline>
-      const themeSaved = localStorage.getItem("theme");
-
+      // const themeSaved = localStorage.getItem("theme");
+      const themeSaved = 'light'
+      
       if (themeSaved) {
         document.documentElement.dataset.theme = themeSaved;
       } else {

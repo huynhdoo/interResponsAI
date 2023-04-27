@@ -1,6 +1,41 @@
 ---
 import { Icon } from "astro-icon";
 import Section from "~/components/section.astro";
+
+var feedback
+
+if (Astro.request.method === "POST") {
+  try {
+    const data = await Astro.request.formData();
+    const email = data.get("email");
+    const list = data.get("list");
+    // bearer = btoa('username:password')
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type':'application/json',     
+        'Authorization': 'Basic YWRtaW46YWRtaW4='
+      },
+      body: JSON.stringify({
+        email: email,
+        name: email,
+        status: 'enabled',
+        lists: [parseInt(list)]
+      })
+    }
+    console.log('options:', options)
+    const response = await fetch('https://inter-respons-ai.up.railway.app/api/subscribers', options);
+    const res = await response.json();
+    console.log('response:', res)
+    feedback = res.data ? res.data.email + " added to the survey list." : res.message
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error.message);
+      feedback = error.message
+    }
+  }
+  console.log('feedback:', feedback)
+}
 ---
 
 <Section title="InterResponsAI'23" id="launch">
@@ -22,11 +57,22 @@ import Section from "~/components/section.astro";
       Please <b>register with your email</b> to receive the survey.
     </p>
   </div>
-  <form class="w-full grid gap-2 grid-cols-1 sm:grid-cols-2 sm:max-w-prose">
-    <input 
-      type="email" 
+  <form
+    method="POST" 
+    class="w-full grid gap-2 grid-cols-1 sm:grid-cols-2 sm:max-w-prose">
+    <div>
+      <input type="hidden" name="list" value='3' />
+      <input 
+      type="email"
+      name="email" 
+      required 
       placeholder="contact@academy.science" 
-      class="focus:outline-none focus:border-yellow-500 p-2 border-2 border-current text-sm md:text-base text-center rounded-md"/>
-    <button class="bg-yellow-500 text-black p-2 rounded-md border-2 border-yellow-500 font-bold">Get the survey</button>
+      class="w-full focus:outline-none focus:border-yellow-500 p-2 border-2 border-current text-sm md:text-base text-center rounded-md"/>
+    </div>
+    <input type="submit" class="bg-yellow-500 text-black p-2 rounded-md border-2 border-yellow-500 font-bold" value="Get the survey"/>
+    {feedback && 
+      <span class="sm:col-span-2 bg-yellow-100 border-2 border-yellow-500 rounded text-sm p-2 text-center" role="alert">{feedback}</span>
+    }
   </form>
+  
 </Section>

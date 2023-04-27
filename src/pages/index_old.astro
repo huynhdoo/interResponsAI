@@ -1,12 +1,18 @@
 ---
 import "@fontsource/inter/variable.css";
+// import Compatibility from "~/components/compatibility.astro";
+import Participate from "~/components/participate.astro";
+import Footer from "~/components/footer.astro";
+import Header from "~/components/header.astro";
+import About from "~/components/about.astro";
+import Sponsors from "~/components/sponsors.astro";
+import Splash from "~/components/splash.astro";
 import "~/styles/index.css";
-import Launch from "~/components/launch.astro";
 
 const { generator, site } = Astro;
-const image = new URL("launch.png", site);
-const title = "The use of LLM tools in Universities for teaching and research"
-const description = "ChatGPT and other AI-powered systems that generate text are a challenge to the way we teach, especially for designing exams. What are the solutions and the best practices? The two main networks of Institutes for Advanced Studies, the University-based Institutes for Advances Study (UBIAS) and the European Network of Institutes Advanced Studies (NETIAS) are making a quick survey in which higher education institutions, teachers, and administrators worldwide can share their practices. This is a non-profit and academic initiative to share good practices. Participants will get the results. The survey is open to higher institution worlwide even those that do not belong to the two networks. We are aware practice may differ between units and departments, and that you may not be aware of what other units are doing. The questionnaire is only for your own knowledge and/or practice (teaching and research) in your own unit.";
+const image = new URL("social.png", site);
+const description =
+  "International Responsible Artificial Intelligence Study 2023: on summer 2023, we are lauching an international study about responsible AI. Subscribe now to this unprecedented panel and stay in front of the social research.";
 ---
 
 <!DOCTYPE html>
@@ -16,11 +22,12 @@ const description = "ChatGPT and other AI-powered systems that generate text are
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <meta name="generator" content={generator} />
-    <title>{title}</title>
+
+    <title>International Responsible AI study 2023</title>
     <meta name="description" content={description} />
 
     <!-- social media -->
-    <meta property="og:title" content={title} />
+    <meta property="og:title" content="International Responsible AI study 2023" />
     <meta property="og:type" content="website" />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={image} />
@@ -52,10 +59,16 @@ const description = "ChatGPT and other AI-powered systems that generate text are
     </script>
   </head>
   <body
-    class="h-full bg-default text-default text-base"
+    class="h-full overflow-x-hidden bg-default text-default text-base selection:bg-secondary selection:text-white"
   >
-    <div class="p-8 sm:p-16">
-      <Launch />
+    <Header />
+    <Splash />
+    <div class="space-y-24 px-8 py-32">
+      <About />
+      <hr />
+      <Participate />
+      <hr />
+      <Sponsors />
     </div>
   </body>
 </html>

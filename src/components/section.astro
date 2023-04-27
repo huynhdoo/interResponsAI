@@ -1,0 +1,22 @@
+---
+export interface Props {
+  id: string;
+  title: string;
+}
+
+const { title, id } = Astro.props;
+---
+
+<section
+  id={id}
+  class="flex flex-col items-center gap-4 space-y-8"
+>
+<div class="flex items-center h-16 sm:h-24 space-x-8">
+  <img src="ubias-logo.png" class="h-full"/> 
+  <img src="netias-logo.png" class="h-full"/> 
+</div>
+  <p class="max-w-screen-md text-center font-extrabold text-2xl">
+    <slot name="lead" />
+  </p>
+  <slot />
+</section>

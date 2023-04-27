@@ -1,0 +1,32 @@
+---
+import { Icon } from "astro-icon";
+import Section from "~/components/section.astro";
+---
+
+<Section title="InterResponsAI'23" id="launch">
+  <Icon slot="eyebrow" pack="carbon" name="3d-print-mesh" class="h-full" />
+  <Fragment slot="lead">
+    The use of LLM tools in Universities for teaching and research
+  </Fragment>
+  <div class="max-w-prose space-y-8 text-justify text-sm md:text-base">
+    <p>
+      <a class='underline' href='https://openai.com/blog/chatgpt'>ChatGPT</a> and other AI-powered systems that generate text are a <b>challenge to the way we teach</b>, especially for designing exams. What are the solutions and the best practices?
+    </p>
+    <p>    
+      The two main networks of <b>Institutes for Advanced Studies</b>, the University-based Institutes for Advances Study (<a href='http://www.ubias.net/' target='new' class='underline'>UBIAS</a>) and the European Network of Institutes Advanced Studies (<a href='http://netias.science/' target='new' class='underline'>NETIAS</a>) are making a quick survey in which <b>higher education institutions, teachers, and administrators worldwide</b> can share their practices.
+    </p>
+    <p>
+      This is a <b>non-profit and academic initiative to share good practices</b>. Participants will get the results. The survey is open to <b>higher institution worlwide</b> even those that do not belong to the two networks. We are aware practice may differ between units and departments, and that you may not be aware of what other units are doing. The questionnaire is only for <b>your own knowledge and/or practice (teaching and research) in your own unit</b>.
+    </p>
+    <p>
+      Please <b>register with your email</b> to received the survey.
+    </p>
+  </div>
+  <form class="w-full grid gap-2 grid-cols-1 sm:grid-cols-2 sm:max-w-prose">
+    <input 
+      type="email" 
+      placeholder="contact@academy.science" 
+      class="form-input p-2 border-2 border-current text-sm md:text-base text-center"/>
+    <button class="bg-yellow-500 text-black p-2 rounded-sm border-2 border-yellow-500 font-bold">Get the survey</button>
+  </form>
+</Section>

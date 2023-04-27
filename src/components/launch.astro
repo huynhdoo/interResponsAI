@@ -37,7 +37,6 @@ if (Astro.request.method === "POST") {
   console.log('feedback:', feedback)
 }
 ---
-
 <Section title="InterResponsAI'23" id="launch">
   <Icon slot="eyebrow" pack="carbon" name="3d-print-mesh" class="h-full" />
   <Fragment slot="lead">
@@ -74,5 +73,4 @@ if (Astro.request.method === "POST") {
       <span class="sm:col-span-2 bg-yellow-100 border-2 border-yellow-500 rounded text-sm p-2 text-center" role="alert">{feedback}</span>
     }
   </form>
-  
 </Section>

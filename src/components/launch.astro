@@ -2,19 +2,23 @@
 import { Icon } from "astro-icon";
 import Section from "~/components/section.astro";
 
-var feedback
+var feedback;
 
 if (Astro.request.method === "POST") {
   try {
     const data = await Astro.request.formData();
     const email = data.get("email");
     const list = data.get("list");
-    // bearer = btoa('username:password')
+
+    const user = import.meta.env.LISTMONK_USER;
+    const password = import.meta.env.LISTMONK_PASSWORD;
+    const bearer = btoa(user + ':' + password)
+
     const options = {
       method: 'POST',
       headers: {
         'Content-Type':'application/json',     
-        'Authorization': 'Basic YWRtaW46YWRtaW4='
+        'Authorization': 'Basic ' + bearer
       },
       body: JSON.stringify({
         email: email,
@@ -24,9 +28,11 @@ if (Astro.request.method === "POST") {
       })
     }
     console.log('options:', options)
+
     const response = await fetch('https://inter-respons-ai.up.railway.app/api/subscribers', options);
     const res = await response.json();
     console.log('response:', res)
+    
     feedback = res.data ? res.data.email + " added to the survey list." : res.message
   } catch (error) {
     if (error instanceof Error) {
